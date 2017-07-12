@@ -1,0 +1,18 @@
+// Given an array of strings, return another array containing all of its longest strings.
+
+String[] allLongestStrings(String[] inputArray) {
+int max=0,cnt=0;
+    for(int i=0;i<inputArray.length;i++)
+    {
+        if(inputArray[i].length()>max) {max=inputArray[i].length(); cnt=0; }
+        if(inputArray[i].length()==max)cnt++;
+    }
+    int len=0;
+   String[] outt= new String[cnt];
+    
+    for(int i=0;i<inputArray.length;i++){
+        if(inputArray[i].length()==max)
+        {outt[len]=inputArray[i]; len++;}
+    }
+    return outt;
+}

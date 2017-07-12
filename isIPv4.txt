@@ -1,0 +1,22 @@
+//IPv4 addresses are represented in dot-decimal notation, which consists of four decimal numbers, each ranging from 0 to 255, separated by dots, e.g., 172.16.254.1.Given a string, find out if it satisfies the IPv4 address naming rules.
+
+   
+    boolean isIPv4Address(String inputString) {
+    String[] s=inputString.split("\\.");
+    
+   
+    if(s.length!=4) return false;
+   
+    try
+    {
+        for(int i=0;i<s.length;i++)
+    {
+        if(  s[i].equals("") || (Integer.valueOf(s[i]) > 255) || (Integer.valueOf(s[i]) < 0) ) return false;
+    }
+    return true;
+    }
+    catch(NumberFormatException e){
+        return false;
+    }
+    
+}
