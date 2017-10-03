@@ -1,0 +1,18 @@
+//For p1 = 456 and p2 = 1734, the output should be
+//additionWithoutCarrying(p1, p2) = 1180.
+//
+//    456
+//   1734
+// + ____
+//   1180
+
+int additionWithoutCarrying(int p1, int p2) {
+
+ int cnt=0;   int i=0;int temp;
+    while(p1!=0 || p2!=0){
+        temp=(p1%10  + p2%10)<10?(p1%10  + p2%10):(p1%10  + p2%10) %10;
+        i=i+temp*(int)Math.pow(10,cnt); cnt++;
+        p1/=10; p2/=10;
+    }
+    return i;
+}
