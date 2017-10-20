@@ -1,0 +1,27 @@
+//How many strings equal to a can be constructed using letters from the string b? Each letter can be used only once and in one string only.
+
+Example
+
+For a = "abc" and b = "abccba", the output should be
+stringsConstruction(a, b) = 2.
+
+We can construct 2 strings a with letters from b.
+
+
+int stringsConstruction(String a, String b) {
+if(b.length()<a.length()) return 0;
+  int temp=0; int cnt=0;
+  while(true){
+  for(int i=0;i<a.length();i++){
+    if(b.indexOf(a.charAt(i))>-1) 
+    {
+      temp++; 
+      b=b.replaceFirst(a.charAt(i)+"", "#");
+    }
+  }  
+    if(temp==a.length()){
+      cnt++; temp=0;
+    } else break;
+  }
+  return cnt;
+}
